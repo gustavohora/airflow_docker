@@ -17,7 +17,7 @@ def captura_conta_dados():
         return qtd
 
 def e_valida(ti):
-        qtd = ti.xcom_pull(task_id = captura_conta_dados)
+        qtd = ti.xcom_pull(task_ids = 'captura_conta_dados')
         if (qtd > 1000):
                 return 'valido'
         return 'nao_valido'
