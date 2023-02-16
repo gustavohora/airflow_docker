@@ -22,9 +22,9 @@ def e_valida(ti):
                 return 'valido'
         return 'nao_valido'
 
-with DAG('tutorial_dag', start_date = datetime(2023, 1, 1),
+with DAG('etl_dag', start_date = datetime(2023, 1, 1),
         schedule = '30 * * * *',
-        catchup=False
+        catchup = False
         ) as dag:
 
      captura_conta_dados = PythonOperator(
@@ -46,6 +46,5 @@ with DAG('tutorial_dag', start_date = datetime(2023, 1, 1),
         task_id = 'nao_valido',
         bash_command = "echo 'Quantidade Não Ok'"
      )
-
 
 captura_conta_dados >> e_valida >> [valido, nvalido]
