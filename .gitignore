@@ -1,0 +1,9 @@
+#ignore all logs
+*.log
+*.py.log
+logs/*.log
+logs/acheduler/*.log
+logs/data_processor_manager/*.log
+
+#ignore temp
+dags/__pycache__/
